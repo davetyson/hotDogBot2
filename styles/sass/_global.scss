@@ -1,0 +1,38 @@
+// Import variables and mixins
+@use "./variables" as *;
+@use "./mixins" as *;
+
+/* Global & Wrapper Styles */
+
+html {
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFF;
+    color: #000;
+    text-align: center;
+}
+
+body {
+    font-size: 100%;
+    @include mq('phablet'){
+        font-size: 125%;
+    }
+}
+
+header {
+    padding-top: 30px;
+}
+
+section {
+    height: 100%;
+}
+
+a {
+    color: #0000EE;
+    text-decoration: none;
+}
+
+.wrapper {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+}
