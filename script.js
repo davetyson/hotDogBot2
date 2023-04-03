@@ -2,7 +2,7 @@
 import app from "./firebase.js";
 
 // Import firebase functions that we'll use
-import { getDatabase, ref, set, get, push} from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+import { getDatabase, ref, set, get, push} from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
 
 // Define database reference point variables
 const database = getDatabase(app);

@@ -1,15 +1,15 @@
 // Importing Firebase initialization
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
 
-// Our web app's Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAVrZZkJ2FVyreTdBQvp7TkuWgLe8QmQ_Y",
-  authDomain: "hotdogbot-b4c38.firebaseapp.com",
-  databaseURL: "https://hotdogbot-b4c38-default-rtdb.firebaseio.com",
-  projectId: "hotdogbot-b4c38",
-  storageBucket: "hotdogbot-b4c38.appspot.com",
-  messagingSenderId: "64958207430",
-  appId: "1:64958207430:web:d761a06825bcac0de44ec7"
+  apiKey: "AIzaSyAOVNUYxpoW9lMPnn4YoosDGdaIgBTbCVA",
+  authDomain: "hotdogbot-e885d.firebaseapp.com",
+  databaseURL: "https://hotdogbot-e885d-default-rtdb.firebaseio.com",
+  projectId: "hotdogbot-e885d",
+  storageBucket: "hotdogbot-e885d.appspot.com",
+  messagingSenderId: "828981970144",
+  appId: "1:828981970144:web:5c20268b5c0a24bf10fc85"
 };
 
 // Initialize Firebase
