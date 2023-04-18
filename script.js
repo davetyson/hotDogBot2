@@ -10,9 +10,10 @@ const dbRef = ref(database);
 const answers = ref(database, `/answers`);
 
 // Define DOM element variables
+const changeColor = document.querySelector('.changeColor');
 const form = document.querySelector('form');
 const ul = document.querySelector('ul');
-const submit = document.querySelector('button');
+const submit = document.querySelector('.submitButton');
 
 // Define questions array
 const questions = [
@@ -35,6 +36,21 @@ set(answers, "");
 const addToList = function (userResponse){
     return push(answers, userResponse);
 };
+
+// Hot Dog Mode event listener
+changeColor.addEventListener('click', function(){
+
+    // Define changeColor function to change the color back and forth to hotdog mode
+    const switchColors = function (){
+    if (changeColor.classList.value === "changeColor whiteBG") {
+        changeColor.classList.value = "changeColor hotDogMode"
+    } else {
+        changeColor.classList.value = "changeColor whiteBG"
+    }
+    }
+
+    switchColors();
+});
 
     // Submit button Event Listener, which does a few main things:
     // 1) Checks user input, and if it's not empty, it continues

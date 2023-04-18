@@ -36,3 +36,30 @@ a {
     width: 90%;
     margin: 0 auto;
 }
+
+.changeColor {
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: greenyellow;
+    color: #000;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding: 10px;
+    transition: 0.1s;
+}
+
+.changeColor:hover,
+.changeColor:focus {
+    background: #000;
+    color: greenyellow;
+}
+
+/* 
+hot dog colours: 
+#C57B27 - bun
+#E8AE02 - mustard
+#CC2522 - ketchup
+#995F4C - dog
+
+*/
