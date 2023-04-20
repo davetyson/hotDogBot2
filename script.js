@@ -1,3 +1,7 @@
+// I believe there are many opportunities to DRY this code, for example turning some of the event listener stuff into functions and then calling them later, to clean up the code.
+
+// Namespacing can be applied to this project as well
+
 // Import firebase.js from module
 import app from "./firebase.js";
 
@@ -11,8 +15,11 @@ const answers = ref(database, `/answers`);
 
 // Define DOM element variables
 const changeColor = document.querySelector('.changeColor');
+const body = document.querySelector('body');
 const form = document.querySelector('form');
 const ul = document.querySelector('ul');
+const compLi = document.querySelectorAll('.blue');
+const userLi = document.querySelectorAll('.green');
 const submit = document.querySelector('.submitButton');
 
 // Define questions array
@@ -42,10 +49,25 @@ changeColor.addEventListener('click', function(){
 
     // Define changeColor function to change the color back and forth to hotdog mode
     const switchColors = function (){
-    if (changeColor.classList.value === "changeColor whiteBG") {
-        changeColor.classList.value = "changeColor hotDogMode"
+    if (body.classList === "whiteBG") {
+        changeColor.innerHTML = "Regular Mode";
+        body.classList = "hotDogMode";
+        ul.classList = "hotDogUl";
+
+        // So far the body and UL colours change quite easily, but the ketchup and mustard Li's would take more work. Changing them all in a reflexive way that also predicts new Li's that could appear and assigns the right colour will take more integration throughout the process of adding the elements
+
+        compLi.forEach((compLi) => {
+            compLi.classList = "blue ketchupLi";
+        });
+        userLi.forEach((userLi) => {
+            userLi.classList = "green mustardLi";
+        });
     } else {
-        changeColor.classList.value = "changeColor whiteBG"
+        changeColor.innerHTML = "Hot Dog Mode!";
+        body.classList = "whiteBG";
+        ul.classList = "whiteBG";
+        compLi.classList = "blue";
+        userLi.classList = "green";
     }
     }
 
@@ -77,7 +99,7 @@ form.addEventListener('submit', function(event) {
     // FUNCTIONS FOR EVENTLISTENER
     // Places user msg in a green chat message in chatbox
     const liGreenPlacement = (msg) => {
-        liGreen.className = 'green';
+        liGreen.classList = 'green';
         pGreen.textContent = msg;
         liGreen.append(pGreen);
         ul.appendChild(liGreen);
@@ -85,7 +107,7 @@ form.addEventListener('submit', function(event) {
 
     // Places "loading dots" animation on a new blue chat message in chatbox
     const dottedLiPlacement = () => {
-        liBlue.className = 'dotted-li dot-pulse';
+        liBlue.classList = 'dotted-li dot-pulse';
         liBlue.append(pBlue);
         ul.appendChild(liBlue);
         liBlue.scrollIntoView({block: 'end'});
@@ -94,7 +116,7 @@ form.addEventListener('submit', function(event) {
 
     // Places the current computer generated question into a blue chat message in the chatbox
     const computerQuestion = (currentQ) => {
-        liBlue.className = 'blue';
+        liBlue.classList = 'blue';
         pBlue.textContent = currentQ;
         liBlue.append(pBlue);
         ul.appendChild(liBlue);
@@ -235,13 +257,13 @@ form.addEventListener('submit', function(event) {
 
                 // After a longer delay, add a second computer message reciting back the user's answers and encourage them to try again by refreshing
                 return setTimeout(() => {
-                    liBlue2.className = 'dotted-li dot-pulse';
+                    liBlue2.classList = 'dotted-li dot-pulse';
                     liBlue2.append(pBlue2);
                     ul.appendChild(liBlue2);
                     liBlue2.scrollIntoView({block: 'end'});
                     ul.scrollIntoView();
                     setTimeout(() => {
-                        liBlue2.className = 'blue';
+                        liBlue2.classList = 'blue';
                         pBlue2.textContent = "When I asked if you liked hot dogs, you said " + a1Lower + "! Your favourite topping is " + a2Lower + " (I love that one too!). You estimated that you eat about " + a3Lower + " hot dogs in a year; incredible! Finally, I can't thank you enough for the tip on where to get my next hot dog, I'll be sure to try " + msg + "! Thanks for taking my quiz! Refresh the page to try again :)";
                         liBlue2.append(pBlue2);
                         ul.appendChild(liBlue2);

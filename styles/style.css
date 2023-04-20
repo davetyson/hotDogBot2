@@ -531,14 +531,27 @@ a {
   color: greenyellow;
 }
 
-/* 
-hot dog colours: 
-#C57B27 - bun
-#E8AE02 - mustard
-#CC2522 - ketchup
-#995F4C - dog
+/* Colour classes */
+.whiteBG {
+  background-color: #FFF;
+}
 
-*/
+.hotDogMode {
+  background-color: #C57B27;
+}
+
+.hotDogUl {
+  background-color: #995F4C;
+}
+
+.ketchupLi {
+  background-color: #CC2522;
+}
+
+.mustardLi {
+  background-color: #E8AE02;
+}
+
 /* instructions Section styles */
 p {
   padding: 0 15%;
